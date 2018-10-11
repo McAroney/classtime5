@@ -18,26 +18,22 @@ class Header extends Component {
   }
   render() {
     return (
-      <nav className="navbar navbar-fixed-top bg-warning navbar-shadow" >
-        <div className="container-fluid">
-            <div className="navbar-header">
-                <a className="pull-left navbar-brand" href="/">classtime<span className="text-danger">5</span></a>
-            </div>
-
-            <ul className="nav">
-               <a className="nav-link" href="/dashboard">Clients</a>
-               <a className="nav-link" href="/classes">Classes</a>
-               <a className="nav-link" href="/schedule">Schedule</a>
-            </ul>
-            {this.renderContent()}
-        </div>
-      </nav>
+      <div>
+        <nav className="navbar navbar-fixed-top bg-warning navbar-shadow" >
+          <div className="container">
+              <div className="navbar-header">
+                  <a className="pull-left navbar-brand" href="/">classtime<span className="text-danger">5</span></a>
+              </div>
+              {this.renderContent()}
+          </div>
+        </nav>
+      </div>
     )
   }
 }
 
-function mapStatteToProps ({auth}) {
+function mapStateToProps ({auth}) {
   return {auth};
 }
 
-export default connect(mapStatteToProps)(Header);
+export default connect(mapStateToProps)(Header);
