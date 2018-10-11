@@ -1,4 +1,4 @@
-const routes = require('./routes/all')
+const routes = require('./routes/')
 const keys = require('./config/keys')
 const passport = require('passport');
 const express = require('express');

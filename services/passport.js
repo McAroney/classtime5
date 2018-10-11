@@ -33,7 +33,7 @@ passport.use(new googleStrategy({
                     username: profile.name.givenName
                     }).save().then(
                         user => done(null, user)
-                    );
+                );
             }
         })
     })
