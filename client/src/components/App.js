@@ -17,14 +17,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <BrowserRouter>
           <div className="container-fluid">
-            <Header />
+              <Header />
+            <BrowserRouter>
+            <div>
             <Route exact path="/" component={Landing} />
+            <Route exact path="/landing" component={Landing} />
+            </div>
+
+            </BrowserRouter>
           </div>
-        </BrowserRouter>
-      </div>
     )
   }
 }

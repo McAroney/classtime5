@@ -1,13 +1,13 @@
-const routes = require('./routes/')
-const keys = require('./config/keys')
-const passport = require('passport');
 const express = require('express');
-const cookieSession = require('cookie-session');
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const keys = require('./config/keys')
 
 require('./models/User');
 require('./services/passport');
 
+mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true } );
 
 const app = express();
@@ -16,14 +16,14 @@ app.use(
     cookieSession({
         //30 days
         maxAge: 30 * 24 * 60 * 60 * 1000,
-        keys: [keys.hash]
+        keys: [keys.cookieKey]
     })
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-routes(app);
+require('./routes/auth')(app);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT);
