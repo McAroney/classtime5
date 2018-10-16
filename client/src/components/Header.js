@@ -33,8 +33,6 @@ class Header extends Component {
 }
 
 function mapStateToProps ({auth}) {
-  console.log("mapping state to prop values:");
-  console.log(auth)
   return {auth};
 }
 
